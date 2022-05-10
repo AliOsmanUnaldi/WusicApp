@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.aliosmanunaldi.wusicapp.RegisterFragment"
+        android:name="com.aliosmanunaldi.wusicapp.ui.register.RegisterFragment"
         android:label="RegisterFragment" >
         <action
             android:id="@+id/actionRegisterFragmentToLoginFragment"

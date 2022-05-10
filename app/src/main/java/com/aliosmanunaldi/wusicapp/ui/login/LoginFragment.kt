@@ -1,18 +1,16 @@
 package com.aliosmanunaldi.wusicapp.ui.login
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import com.aliosmanunaldi.wusicapp.User
 import com.aliosmanunaldi.wusicapp.data.login.LoginRepository
 import com.aliosmanunaldi.wusicapp.databinding.FragmentLoginBinding
+import com.google.android.material.snackbar.Snackbar
 
 class LoginFragment : Fragment() {
 
@@ -43,6 +41,9 @@ class LoginFragment : Fragment() {
             )
             viewModel.setUserLogin(user)
         }
+        binding.goToRegisterButton.setOnClickListener {
+            navigateRegisterFragment()
+        }
         setUpViewModel()
     }
 
@@ -57,13 +58,27 @@ class LoginFragment : Fragment() {
 
     private fun renderPageViewState(viewState: LoginPageViewState) {
 
-        if (viewState.result?.data != null){
+        if (viewState.result?.data != null) {
             navigateHomeFragment(viewState)
         }
+        Snackbar.make(
+            binding.loginLayout,
+            viewState.result?.message.toString(),
+            Snackbar.LENGTH_LONG
+        ).show()
     }
 
     private fun navigateHomeFragment(viewState: LoginPageViewState) {
-        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment(viewState.result?.data!!))
+        findNavController().navigate(
+            LoginFragmentDirections.actionLoginFragmentToHomeFragment(
+                viewState.result?.data!!
+            )
+        )
+    }
+
+
+    private fun navigateRegisterFragment() {
+        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
     }
 
     override fun onDestroyView() {

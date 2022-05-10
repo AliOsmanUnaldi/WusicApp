@@ -17,10 +17,21 @@ const val BASE_URL = "https://wusicapp.herokuapp.com"
 fun generateApi(context: Context) {
     if (_api != null) return
 
+    val clientBuilder = OkHttpClient.Builder()
+    val loggingInterceptor = HttpLoggingInterceptor().apply {
+        setLevel(HttpLoggingInterceptor.Level.BODY)
+    }
+    clientBuilder.addInterceptor(loggingInterceptor)
+
     val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
+        .client(
+            clientBuilder
+                .addNetworkInterceptor(loggingInterceptor)
+                .build()
+        )
         .addConverterFactory(GsonConverterFactory.create())
-        .build()
+        .build();
 
     _api = retrofit.create(WusicApi::class.java)
 }

@@ -18,12 +18,20 @@ class LoginViewModel(
     fun getPageLiveData(): LiveData<LoginPageViewState> = pageLiveData
 
     fun setUserLogin(user: User) = viewModelScope.launch {
-            val result: LoginResponse =
-                repository.setUserLogin(user)
-
-        if (result.data != null){
-            pageLiveData.value = LoginPageViewState(result)
+        try {
+            repository.setUserLogin(user).collect {
+                pageLiveData.value = LoginPageViewState(it)
+            }
+        } catch (e: Exception) {
+            pageLiveData.value = LoginPageViewState(
+                LoginResponse(
+                    null,
+                    success = false,
+                    message = "Kişi bulunamadı"
+                )
+            )
         }
+
 
     }
 }

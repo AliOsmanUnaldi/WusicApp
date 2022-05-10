@@ -9,6 +9,8 @@ import androidx.fragment.app.viewModels
 import com.aliosmanunaldi.wusicapp.data.home.HomeRepository
 import com.aliosmanunaldi.wusicapp.databinding.FragmentHomeBinding
 import com.aliosmanunaldi.wusicapp.ui.common.LinearItemDecoration
+import com.aliosmanunaldi.wusicapp.ui.homepage.city.CityListAdapter
+import com.aliosmanunaldi.wusicapp.ui.homepage.city.CityListViewState
 
 class HomeFragment : Fragment() {
 
@@ -16,6 +18,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     lateinit var listAdapter: RoomListAdapter
+    lateinit var cityAdapter: CityListAdapter
 
     val viewModel: HomeViewModel by viewModels {
         HomeViewModelFactory(
@@ -41,8 +44,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpView()
-        viewModel.fetchRoomList(3, "ANKARA")
         setUpViewModel()
+        viewModel.fetchCities()
     }
 
     private fun setUpView() {
@@ -55,6 +58,19 @@ class HomeFragment : Fragment() {
                 addItemDecoration(LinearItemDecoration())
             }
         }
+        with(binding.citiesRecyclerView) {
+            cityAdapter = CityListAdapter()
+            adapter = cityAdapter.apply {
+                itemClickListener = {
+                    fetchRooms(it.city)
+                }
+            }
+            addItemDecoration(LinearItemDecoration())
+        }
+    }
+
+    private fun fetchRooms(cityName: String) {
+        viewModel.fetchRoomList(3, cityName)
     }
 
     private fun setUpViewModel() {
@@ -63,11 +79,19 @@ class HomeFragment : Fragment() {
             getPageLiveData().observe(viewLifecycleOwner) {
                 renderPageViewState(it)
             }
+            getCitesLiveData().observe(viewLifecycleOwner) {
+                renderCityListViewState(it)
+            }
         }
     }
 
     private fun renderPageViewState(viewState: RoomListViewState) {
         binding.viewState = viewState
         listAdapter.submitList(viewState.rooms.rooms)
+    }
+
+    private fun renderCityListViewState(viewState: CityListViewState) {
+        binding.cityViewState = viewState
+        cityAdapter.submitList(viewState.list.cityList)
     }
 }

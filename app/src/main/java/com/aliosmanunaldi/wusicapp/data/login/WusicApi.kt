@@ -1,6 +1,7 @@
 package com.aliosmanunaldi.wusicapp.data.login
 
 import com.aliosmanunaldi.wusicapp.UserRegister
+import com.aliosmanunaldi.wusicapp.data.home.models.CityListResponse
 import com.aliosmanunaldi.wusicapp.data.home.models.RoomListResponse
 import com.aliosmanunaldi.wusicapp.data.register.RegisterResponse
 import retrofit2.http.Body
@@ -23,4 +24,7 @@ interface WusicApi {
         @Query(value = "city") city: String,
         @Query(value = "userId") userId: String
     ): RoomListResponse
+
+    @GET("/api/cities/getAll")
+    suspend fun fetchCities(): CityListResponse
 }

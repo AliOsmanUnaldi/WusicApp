@@ -1,6 +1,7 @@
 package com.aliosmanunaldi.wusicapp.data.login
 
 import com.aliosmanunaldi.wusicapp.UserRegister
+import com.aliosmanunaldi.wusicapp.data.home.models.RoomListResponse
 import com.aliosmanunaldi.wusicapp.data.register.RegisterResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -16,5 +17,10 @@ interface WusicApi {
 
     @POST("/register")
     suspend fun register(@Body user: UserRegister): RegisterResponse
-    //email direk gelmedi sıkıntı olabilir!
+
+    @GET("/api/rooms/getAllByCityName")
+    suspend fun fetchRoomList(
+        @Query(value = "city") city: String,
+        @Query(value = "userId") userId: String
+    ): RoomListResponse
 }

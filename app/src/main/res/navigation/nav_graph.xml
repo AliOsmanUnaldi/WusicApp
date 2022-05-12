@@ -26,9 +26,21 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.aliosmanunaldi.wusicapp.ui.homepage.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/actionHomeFragmentToRoomDetailFragment"
+            app:destination="@+id/roomDetailFragment" />
         <argument
             android:name="userId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/roomDetailFragment"
+        android:name="com.aliosmanunaldi.wusicapp.ui.homepage.roomDetail.RoomDetailFragment"
+        android:label="RoomDetailFragment">
+        <argument
+            android:name="roomId"
+            app:argType="integer" />
+    </fragment>
+
 </navigation>

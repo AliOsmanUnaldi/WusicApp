@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.aliosmanunaldi.wusicapp.data.home.HomeRepository
+import com.aliosmanunaldi.wusicapp.data.home.models.RoomResponse
 import com.aliosmanunaldi.wusicapp.databinding.FragmentHomeBinding
 import com.aliosmanunaldi.wusicapp.ui.common.LinearItemDecoration
 import com.aliosmanunaldi.wusicapp.ui.homepage.city.CityListAdapter
@@ -16,6 +19,7 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private val args: HomeFragmentArgs by navArgs()
 
     lateinit var listAdapter: RoomListAdapter
     lateinit var cityAdapter: CityListAdapter
@@ -36,6 +40,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
@@ -53,7 +58,7 @@ class HomeFragment : Fragment() {
             apply {
                 listAdapter = RoomListAdapter()
                 adapter = listAdapter.apply {
-                    // itemClickListener = ::navigateRoomDetailFragment
+                    itemClickListener = ::navigateRoomDetailFragment
                 }
                 addItemDecoration(LinearItemDecoration())
             }
@@ -69,8 +74,18 @@ class HomeFragment : Fragment() {
         }
     }
 
+    private fun navigateRoomDetailFragment(roomResponse: RoomResponse) {
+
+        val id: Int = roomResponse?.id ?: 0
+        findNavController().navigate(
+            HomeFragmentDirections.actionHomeFragmentToRoomDetailFragment(
+                id
+            )
+        )
+    }
+
     private fun fetchRooms(cityName: String) {
-        viewModel.fetchRoomList(3, cityName)
+        viewModel.fetchRoomList(args.userId, cityName)
     }
 
     private fun setUpViewModel() {

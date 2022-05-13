@@ -6,7 +6,7 @@
 
         <variable
             name="itemViewState"
-            type="com.aliosmanunaldi.wusicapp.ui.homepage.city.CityItemViewState" />
+            type="com.aliosmanunaldi.wusicapp.ui.city.CityItemViewState" />
     </data>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"

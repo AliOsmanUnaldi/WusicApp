@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/roomDetailFragment"
-        android:name="com.aliosmanunaldi.wusicapp.ui.homepage.roomDetail.RoomDetailFragment"
+        android:name="com.aliosmanunaldi.wusicapp.ui.roomDetail.RoomDetailFragment"
         android:label="RoomDetailFragment">
         <argument
             android:name="roomId"

@@ -1,4 +1,4 @@
-package com.aliosmanunaldi.wusicapp.ui.homepage.city
+package com.aliosmanunaldi.wusicapp.ui.city
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

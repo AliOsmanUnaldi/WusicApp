@@ -5,11 +5,11 @@
 
         <variable
             name="viewState"
-            type="com.aliosmanunaldi.wusicapp.ui.homepage.roomDetail.RoomDetailPageViewState" />
+            type="com.aliosmanunaldi.wusicapp.ui.roomDetail.RoomDetailPageViewState" />
 
         <variable
             name="joinViewState"
-            type="com.aliosmanunaldi.wusicapp.ui.homepage.roomDetail.JoinRoomViewState" />
+            type="com.aliosmanunaldi.wusicapp.ui.roomDetail.JoinRoomViewState" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -17,7 +17,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.homepage.roomDetail.RoomDetailFragment"
+        tools:context=".ui.roomDetail.RoomDetailFragment"
         android:orientation="vertical">
 
         <TextView

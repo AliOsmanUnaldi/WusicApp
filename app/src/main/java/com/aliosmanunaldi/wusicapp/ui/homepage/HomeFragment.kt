@@ -11,9 +11,9 @@ import androidx.navigation.fragment.navArgs
 import com.aliosmanunaldi.wusicapp.data.home.HomeRepository
 import com.aliosmanunaldi.wusicapp.data.home.models.RoomResponse
 import com.aliosmanunaldi.wusicapp.databinding.FragmentHomeBinding
+import com.aliosmanunaldi.wusicapp.ui.city.CityListAdapter
+import com.aliosmanunaldi.wusicapp.ui.city.CityListViewState
 import com.aliosmanunaldi.wusicapp.ui.common.LinearItemDecoration
-import com.aliosmanunaldi.wusicapp.ui.homepage.city.CityListAdapter
-import com.aliosmanunaldi.wusicapp.ui.homepage.city.CityListViewState
 
 class HomeFragment : Fragment() {
 

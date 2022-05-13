@@ -1,4 +1,4 @@
-package com.aliosmanunaldi.wusicapp.ui.homepage.roomDetail
+package com.aliosmanunaldi.wusicapp.ui.roomDetail
 
 import android.view.View
 import com.aliosmanunaldi.wusicapp.data.roomDetail.JoinRoomResponse

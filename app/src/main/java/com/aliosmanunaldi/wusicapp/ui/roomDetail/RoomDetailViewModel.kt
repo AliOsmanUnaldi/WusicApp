@@ -1,4 +1,4 @@
-package com.aliosmanunaldi.wusicapp.ui.homepage.roomDetail
+package com.aliosmanunaldi.wusicapp.ui.roomDetail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

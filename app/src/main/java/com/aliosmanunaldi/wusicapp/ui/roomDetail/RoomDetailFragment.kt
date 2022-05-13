@@ -1,4 +1,4 @@
-package com.aliosmanunaldi.wusicapp.ui.homepage.roomDetail
+package com.aliosmanunaldi.wusicapp.ui.roomDetail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +15,7 @@ class RoomDetailFragment : Fragment() {
 
     private var _binding: FragmentRoomDetailBinding? = null
     private val binding get() = _binding!!
-    private val args: RoomDetailFragmentArgs by navArgs()
+    private val args: com.aliosmanunaldi.wusicapp.ui.roomDetail.RoomDetailFragmentArgs by navArgs()
 
 
     val viewModel: RoomDetailViewModel by viewModels {

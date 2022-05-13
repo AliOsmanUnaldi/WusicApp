@@ -11,7 +11,7 @@
 
         <variable
             name="cityViewState"
-            type="com.aliosmanunaldi.wusicapp.ui.homepage.city.CityListViewState" />
+            type="com.aliosmanunaldi.wusicapp.ui.city.CityListViewState" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

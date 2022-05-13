@@ -1,4 +1,4 @@
-package com.aliosmanunaldi.wusicapp.ui.homepage.city
+package com.aliosmanunaldi.wusicapp.ui.city
 
 import com.aliosmanunaldi.wusicapp.data.home.models.CityListResponse
 

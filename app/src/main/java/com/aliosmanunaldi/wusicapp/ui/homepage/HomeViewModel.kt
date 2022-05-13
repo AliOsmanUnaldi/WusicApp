@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.aliosmanunaldi.wusicapp.data.home.HomeRepository
 import com.aliosmanunaldi.wusicapp.data.home.models.CityListResponse
 import com.aliosmanunaldi.wusicapp.data.home.models.RoomListResponse
-import com.aliosmanunaldi.wusicapp.ui.homepage.city.CityListViewState
+import com.aliosmanunaldi.wusicapp.ui.city.CityListViewState
 import kotlinx.coroutines.launch
 
 class HomeViewModel(

@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 data class RoomDetailResponse(
 
     @SerializedName("data")
-    val data: List<RoomResponse>,
+    val data: RoomResponse?,
 
     @SerializedName("susccess")
     val success: Boolean,

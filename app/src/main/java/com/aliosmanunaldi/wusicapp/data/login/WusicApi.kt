@@ -30,5 +30,5 @@ interface WusicApi {
     suspend fun fetchCities(): CityListResponse
 
     @GET("/api/rooms/getRoomByRoomId")
-    suspend fun getRoomByRoomId(@Query(value = "roomId") roomId: Int): RoomDetailResponse
+    suspend fun getRoomByRoomId(@Query(value = "id") roomId: Int): RoomDetailResponse
 }

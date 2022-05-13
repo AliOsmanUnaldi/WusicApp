@@ -1,14 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.homepage.roomDetail.RoomDetailFragment">
+<layout>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+        <variable
+            name="viewState"
+            type="com.aliosmanunaldi.wusicapp.ui.homepage.roomDetail.RoomDetailPageViewState" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".ui.homepage.roomDetail.RoomDetailFragment"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/roomName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{viewState.roomName}"
+            tools:text="selam" />
+
+        <TextView
+            android:id="@+id/roomGenre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{viewState.roomGenre}"
+            tools:text="selam" />
+
+        <TextView
+            android:id="@+id/roomCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{viewState.roomCity}"
+            tools:text="selam" />
+
+        <TextView
+            android:id="@+id/roomDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{viewState.roomDescription}"
+            tools:text="selam" />
+
+        <Button
+            android:id="@+id/joinRoomButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Odaya Gir"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:layout_margin="6dp"
+            tools:text="selam" />
+    </LinearLayout>
+</layout>

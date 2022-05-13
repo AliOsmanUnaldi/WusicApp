@@ -76,10 +76,11 @@ class HomeFragment : Fragment() {
 
     private fun navigateRoomDetailFragment(roomResponse: RoomResponse) {
 
-        val id: Int = roomResponse?.id ?: 0
+        val roomId: Int = roomResponse?.id ?: 0
         findNavController().navigate(
             HomeFragmentDirections.actionHomeFragmentToRoomDetailFragment(
-                id
+                roomId,
+                args.userId
             )
         )
     }

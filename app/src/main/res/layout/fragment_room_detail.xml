@@ -6,10 +6,15 @@
         <variable
             name="viewState"
             type="com.aliosmanunaldi.wusicapp.ui.homepage.roomDetail.RoomDetailPageViewState" />
+
+        <variable
+            name="joinViewState"
+            type="com.aliosmanunaldi.wusicapp.ui.homepage.roomDetail.JoinRoomViewState" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.homepage.roomDetail.RoomDetailFragment"
@@ -48,9 +53,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Odaya Gir"
+            android:visibility="@{joinViewState.userJoined}"
             android:layout_gravity="center"
             android:padding="10dp"
-            android:layout_margin="6dp"
-            tools:text="selam" />
+            android:layout_margin="6dp" />
+
+        <Button
+            android:id="@+id/quitRoomButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Odadan Ayrıl"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:layout_margin="6dp" />
     </LinearLayout>
 </layout>

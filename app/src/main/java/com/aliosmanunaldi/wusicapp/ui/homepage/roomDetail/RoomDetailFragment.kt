@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.aliosmanunaldi.wusicapp.data.roomDetail.RoomDetailRepository
 import com.aliosmanunaldi.wusicapp.databinding.FragmentRoomDetailBinding
+import com.google.android.material.snackbar.Snackbar
 
 class RoomDetailFragment : Fragment() {
 
@@ -24,7 +25,6 @@ class RoomDetailFragment : Fragment() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -39,10 +39,16 @@ class RoomDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
         viewModel.fetchRoomDetail(args.roomId)
         binding.joinRoomButton.setOnClickListener {
-            viewModel.setUserLogin(args.userId, args.roomId)
+            viewModel.setUserJoinRoom(args.userId, args.roomId)
         }
+        binding.quitRoomButton.setOnClickListener {
+            viewModel.setUserQuitRoom(args.userId)
+        }
+
         setUpViewModel()
     }
 
@@ -53,6 +59,12 @@ class RoomDetailFragment : Fragment() {
             getPageLiveData().observe(viewLifecycleOwner) {
                 renderPageViewState(it)
             }
+            getJoinRoomLiveData().observe(viewLifecycleOwner) {
+                renderJoinRoomViewState(it)
+            }
+            getQuitRoomLiveData().observe(viewLifecycleOwner) {
+                renderQuitRoomViewState(it)
+            }
         }
     }
 
@@ -60,5 +72,22 @@ class RoomDetailFragment : Fragment() {
         binding.viewState = viewState
     }
 
+    private fun renderJoinRoomViewState(viewState: JoinRoomViewState) {
+        binding.joinViewState = viewState
+        binding.quitRoomButton.visibility = viewState.isUserNotJoined()
+        Snackbar.make(
+            binding.linearLayout,
+            viewState.response.message,
+            Snackbar.LENGTH_SHORT
+        ).show()
+    }
+
+    private fun renderQuitRoomViewState(viewState: QuitRoomViewState) {
+        Snackbar.make(
+            binding.linearLayout,
+            viewState.response.message,
+            Snackbar.LENGTH_SHORT
+        ).show()
+    }
 
 }

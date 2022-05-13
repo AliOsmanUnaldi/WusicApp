@@ -8,4 +8,12 @@ class RoomDetailRepository {
     suspend fun fetchRoomDetail(roomId: Int): Flow<RoomDetailResponse> {
         return flow { emit(api.getRoomByRoomId(roomId)) }
     }
+
+    suspend fun setUserJoinRoom(userId: Int, roomId: Int): Flow<JoinRoomResponse> {
+        return flow { emit(api.setUserJoinRoom(userId, roomId)) }
+    }
+
+    suspend fun setUserQuitRoom(userId: Int): Flow<QuitRoomResponse> {
+        return flow { emit(api.setUserQuitRoom(userId)) }
+    }
 }

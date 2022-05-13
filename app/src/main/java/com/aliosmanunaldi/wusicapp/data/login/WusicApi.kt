@@ -4,6 +4,8 @@ import com.aliosmanunaldi.wusicapp.UserRegister
 import com.aliosmanunaldi.wusicapp.data.home.models.CityListResponse
 import com.aliosmanunaldi.wusicapp.data.home.models.RoomListResponse
 import com.aliosmanunaldi.wusicapp.data.register.RegisterResponse
+import com.aliosmanunaldi.wusicapp.data.roomDetail.JoinRoomResponse
+import com.aliosmanunaldi.wusicapp.data.roomDetail.QuitRoomResponse
 import com.aliosmanunaldi.wusicapp.data.roomDetail.RoomDetailResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -31,4 +33,15 @@ interface WusicApi {
 
     @GET("/api/rooms/getRoomByRoomId")
     suspend fun getRoomByRoomId(@Query(value = "id") roomId: Int): RoomDetailResponse
+
+    @GET("/joinIntoRoom")
+    suspend fun setUserJoinRoom(
+        @Query(value = "userId") userId: Int,
+        @Query(value = "roomId") roomId: Int
+    ): JoinRoomResponse
+
+    @GET("/quit")
+    suspend fun setUserQuitRoom(
+        @Query(value = "id") userId: Int
+    ): QuitRoomResponse
 }

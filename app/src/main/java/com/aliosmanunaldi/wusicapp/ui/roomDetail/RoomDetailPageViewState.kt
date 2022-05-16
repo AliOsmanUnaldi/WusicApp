@@ -4,6 +4,7 @@ import com.aliosmanunaldi.wusicapp.data.roomDetail.RoomDetailResponse
 
 data class RoomDetailPageViewState(val result: RoomDetailResponse) {
 
+    fun getRoomOwnerId() = result.data?.ownerId
 
     fun getRoomName() = result.data?.roomName
 

@@ -2,7 +2,7 @@ package com.aliosmanunaldi.wusicapp.data.roomDetail
 
 import com.google.gson.annotations.SerializedName
 
-data class QuitRoomResponse(
+data class LeaveRoomResponse(
     @SerializedName("susccess")
     val success: Boolean,
 

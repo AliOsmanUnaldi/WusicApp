@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.aliosmanunaldi.wusicapp.data.roomDetail.RoomDetailRepository
 import com.aliosmanunaldi.wusicapp.databinding.FragmentRoomDetailBinding
@@ -46,7 +47,13 @@ class RoomDetailFragment : Fragment() {
             viewModel.setUserJoinRoom(args.userId, args.roomId)
         }
         binding.quitRoomButton.setOnClickListener {
-            viewModel.setUserQuitRoom(args.userId)
+            findNavController().navigate(
+                RoomDetailFragmentDirections.actionRoomDetailToReviewFragment(
+                    args.roomId,
+                    args.userId,
+                    binding.viewState?.getRoomOwnerId() ?: -1
+                )
+            )
         }
 
         setUpViewModel()
@@ -82,7 +89,7 @@ class RoomDetailFragment : Fragment() {
         ).show()
     }
 
-    private fun renderQuitRoomViewState(viewState: QuitRoomViewState) {
+    private fun renderQuitRoomViewState(viewState: LeaveRoomViewState) {
         Snackbar.make(
             binding.linearLayout,
             viewState.response.message,

@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class RoomDetailRepository {
+
     suspend fun fetchRoomDetail(roomId: Int): Flow<RoomDetailResponse> {
         return flow { emit(api.getRoomByRoomId(roomId)) }
     }
@@ -13,7 +14,7 @@ class RoomDetailRepository {
         return flow { emit(api.setUserJoinRoom(userId, roomId)) }
     }
 
-    suspend fun setUserQuitRoom(userId: Int): Flow<QuitRoomResponse> {
+    suspend fun setUserQuitRoom(userId: Int): Flow<LeaveRoomResponse> {
         return flow { emit(api.setUserQuitRoom(userId)) }
     }
 }

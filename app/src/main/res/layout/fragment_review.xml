@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.review.ReviewFragment"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/givePointEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Puan" />
+
+        <EditText
+            android:id="@+id/commentEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Yorum" />
+
+        <Button
+            android:id="@+id/submitPointAndCommentButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gönder" />
+    </LinearLayout>
+</layout>

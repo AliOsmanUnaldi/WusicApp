@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aliosmanunaldi.wusicapp.data.roomDetail.JoinRoomResponse
-import com.aliosmanunaldi.wusicapp.data.roomDetail.QuitRoomResponse
+import com.aliosmanunaldi.wusicapp.data.roomDetail.LeaveRoomResponse
 import com.aliosmanunaldi.wusicapp.data.roomDetail.RoomDetailRepository
 import com.aliosmanunaldi.wusicapp.data.roomDetail.RoomDetailResponse
 import kotlinx.coroutines.launch
@@ -15,11 +15,11 @@ class RoomDetailViewModel(val repository: RoomDetailRepository) : ViewModel() {
 
     val pageLiveData: MutableLiveData<RoomDetailPageViewState> = MutableLiveData()
     val joinRoomLiveData: MutableLiveData<JoinRoomViewState> = MutableLiveData()
-    val quitRoomLiveData: MutableLiveData<QuitRoomViewState> = MutableLiveData()
+    val leaveRoomLiveData: MutableLiveData<LeaveRoomViewState> = MutableLiveData()
 
     fun getPageLiveData(): LiveData<RoomDetailPageViewState> = pageLiveData
     fun getJoinRoomLiveData(): LiveData<JoinRoomViewState> = joinRoomLiveData
-    fun getQuitRoomLiveData(): LiveData<QuitRoomViewState> = quitRoomLiveData
+    fun getQuitRoomLiveData(): LiveData<LeaveRoomViewState> = leaveRoomLiveData
 
 
     fun fetchRoomDetail(roomId: Int) = viewModelScope.launch {
@@ -56,11 +56,11 @@ class RoomDetailViewModel(val repository: RoomDetailRepository) : ViewModel() {
     fun setUserQuitRoom(userId: Int) = viewModelScope.launch {
         try {
             repository.setUserQuitRoom(userId).collect {
-                quitRoomLiveData.value = QuitRoomViewState(it)
+                leaveRoomLiveData.value = LeaveRoomViewState(it)
             }
         } catch (e: Exception) {
-            quitRoomLiveData.value = QuitRoomViewState(
-                QuitRoomResponse(
+            leaveRoomLiveData.value = LeaveRoomViewState(
+                LeaveRoomResponse(
                     success = false,
                     message = "OLMADI"
                 )

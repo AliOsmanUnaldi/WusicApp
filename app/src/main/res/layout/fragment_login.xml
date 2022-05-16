@@ -8,7 +8,15 @@
         android:orientation="vertical"
         android:id="@+id/loginLayout"
         tools:context=".ui.login.LoginFragment"
-        android:background="@color/design_default_color_secondary_variant">
+        android:background="@color/metalWhite">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="40dp" />
 
         <EditText
             android:layout_width="250dp"
@@ -18,34 +26,34 @@
             android:layout_gravity="center"
             android:padding="10dp"
             android:layout_margin="6dp" />
-    <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/passwordLoginEditText"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:layout_gravity="center"
-        android:padding="10dp"
-        android:layout_margin="6dp"
-        />
-    <Button
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:id="@+id/loginButton"
-        android:text="Giriş Yap"
-        android:layout_gravity="center"
-        android:padding="10dp"
-        android:layout_margin="6dp"
-        />
-    <Button
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:id="@+id/goToRegisterButton"
-        android:text="Kayıt Ol"
-        android:layout_gravity="center"
-        android:padding="10dp"
-        android:layout_margin="6dp"
-        />
 
-</LinearLayout>
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/passwordLoginEditText"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:layout_margin="6dp" />
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:id="@+id/loginButton"
+            android:text="Giriş Yap"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:layout_margin="6dp" />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:id="@+id/goToRegisterButton"
+            android:text="Kayıt Ol"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:layout_margin="6dp" />
+
+    </LinearLayout>
 </layout>

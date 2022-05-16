@@ -1,11 +1,13 @@
 package com.aliosmanunaldi.wusicapp.data.login
 
+import com.aliosmanunaldi.wusicapp.Review
 import com.aliosmanunaldi.wusicapp.UserRegister
 import com.aliosmanunaldi.wusicapp.data.home.models.CityListResponse
 import com.aliosmanunaldi.wusicapp.data.home.models.RoomListResponse
 import com.aliosmanunaldi.wusicapp.data.register.RegisterResponse
+import com.aliosmanunaldi.wusicapp.data.review.ReviewResponse
 import com.aliosmanunaldi.wusicapp.data.roomDetail.JoinRoomResponse
-import com.aliosmanunaldi.wusicapp.data.roomDetail.QuitRoomResponse
+import com.aliosmanunaldi.wusicapp.data.roomDetail.LeaveRoomResponse
 import com.aliosmanunaldi.wusicapp.data.roomDetail.RoomDetailResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -43,5 +45,10 @@ interface WusicApi {
     @GET("/quit")
     suspend fun setUserQuitRoom(
         @Query(value = "id") userId: Int
-    ): QuitRoomResponse
+    ): LeaveRoomResponse
+
+    @POST("/leaveFromRoom")
+    suspend fun setUserReview(
+        @Body review: Review
+    ): ReviewResponse
 }

@@ -38,11 +38,28 @@
         android:id="@+id/roomDetailFragment"
         android:name="com.aliosmanunaldi.wusicapp.ui.roomDetail.RoomDetailFragment"
         android:label="RoomDetailFragment">
+        <action
+            android:id="@+id/actionRoomDetailToReviewFragment"
+            app:destination="@+id/reviewFragment" />
         <argument
             android:name="roomId"
             app:argType="integer" />
         <argument
             android:name="userId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/reviewFragment"
+        android:name="com.aliosmanunaldi.wusicapp.ui.review.ReviewFragment"
+        android:label="ReviewFragment">
+        <argument
+            android:name="roomId"
+            app:argType="integer" />
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+        <argument
+            android:name="roomOwnerId"
             app:argType="integer" />
     </fragment>
 

@@ -12,7 +12,7 @@ private var _api: WusicApi? = null
 // Accessing this will crash if done before calling generate()
 val api get() = _api!!
 
-const val BASE_URL = "https://wusicapp.herokuapp.com"
+const val BASE_URL = "https://wusicapp1.herokuapp.com"
 
 fun generateApi(context: Context) {
     if (_api != null) return

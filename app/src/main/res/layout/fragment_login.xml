@@ -6,53 +6,76 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:backgroundTint="@color/black"
         android:id="@+id/loginLayout"
         tools:context=".ui.login.LoginFragment"
         android:background="@color/metalWhite">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_background"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_launcher_foreground"
             android:layout_gravity="center"
-            android:layout_marginTop="100dp"
-            android:layout_marginBottom="40dp" />
+            android:layout_marginTop="80dp" />
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/filledTextField"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:id="@+id/userNameLoginEditText"
-            android:hint="Username"
             android:layout_gravity="center"
-            android:padding="10dp"
-            android:layout_margin="6dp" />
+            android:backgroundTint="@color/white"
+            android:textColor="@color/lightGreen"
+            android:layout_margin="6dp"
+            android:hint="Username">
 
-        <EditText
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/darkBlack"
+                android:id="@+id/userNameLoginEditText" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/filledTextField2"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:id="@+id/passwordLoginEditText"
-            android:hint="Password"
-            android:inputType="textPassword"
             android:layout_gravity="center"
-            android:padding="10dp"
-            android:layout_margin="6dp" />
+            android:backgroundTint="@color/white"
+            android:textColor="@color/lightGreen"
+            android:layout_margin="6dp"
+            android:hint="Password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/passwordLoginEditText"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/darkBlack"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:layout_width="250dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:id="@+id/loginButton"
             android:text="Giriş Yap"
             android:layout_gravity="center"
-            android:padding="10dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/lightGreen"
             android:layout_margin="6dp" />
 
         <Button
-            android:layout_width="150dp"
-            android:layout_height="50dp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
             android:id="@+id/goToRegisterButton"
             android:text="Kayıt Ol"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/lightGreen"
             android:layout_gravity="center"
-            android:padding="10dp"
+            style="?attr/materialButtonOutlinedStyle"
             android:layout_margin="6dp" />
 
     </LinearLayout>

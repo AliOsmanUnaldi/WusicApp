@@ -14,35 +14,36 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/roomNameEditText"
-            android:hint="Enter Room Name"
+            android:hint="Room Name"
             android:layout_margin="10dp" />
 
         <EditText
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/roomGenreEditText"
-            android:hint="Enter Room Name"
+            android:hint="Genre"
             android:layout_margin="10dp" />
 
         <EditText
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/roomCityEditText"
-            android:hint="Enter Room Name"
+            android:hint="City"
             android:layout_margin="10dp" />
 
         <EditText
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/roomPasswordEditText"
-            android:hint="Enter Room Password"
+            android:hint="Password"
             android:layout_margin="10dp" />
 
         <EditText
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/roomDescriptionEditText"
-            android:hint="Enter Room Description"
+            android:hint="Description"
+            android:lines="4"
             android:layout_margin="10dp" />
 
         <Button

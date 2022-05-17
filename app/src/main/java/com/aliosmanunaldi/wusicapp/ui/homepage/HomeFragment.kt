@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.aliosmanunaldi.wusicapp.R
 import com.aliosmanunaldi.wusicapp.data.home.HomeRepository
 import com.aliosmanunaldi.wusicapp.data.home.models.RoomResponse
 import com.aliosmanunaldi.wusicapp.databinding.FragmentHomeBinding
@@ -40,6 +42,10 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        _binding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_home, container, false
+        )
+
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
@@ -72,6 +78,19 @@ class HomeFragment : Fragment() {
             }
             addItemDecoration(LinearItemDecoration())
         }
+        binding?.createRoomButton?.setOnClickListener { view ->
+            navigateAddRoomFragment()
+
+        }
+    }
+
+    private fun navigateAddRoomFragment() {
+
+        findNavController().navigate(
+            HomeFragmentDirections.actionHomeFragmentToAddRoomFragment(
+                args.userId
+            )
+        )
     }
 
     private fun navigateRoomDetailFragment(roomResponse: RoomResponse) {

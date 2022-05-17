@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.aliosmanunaldi.wusicapp.Comment
 import com.aliosmanunaldi.wusicapp.Point
@@ -64,6 +65,9 @@ class ReviewFragment : Fragment() {
     }
 
     private fun renderPageViewState(viewState: ReviewPageViewState) {
+
+        findNavController().navigate(ReviewFragmentDirections.actionReviewToHomeFragment(args.userId))
+
         Snackbar.make(
             binding.linearLayout,
             viewState.result?.message.toString(),

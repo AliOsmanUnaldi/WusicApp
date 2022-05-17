@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.addRoom.AddRoomFragment"
+        android:orientation="vertical"
+        android:background="@color/metalWhite">
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/roomNameEditText"
+            android:hint="Enter Room Name"
+            android:layout_margin="10dp" />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/roomGenreEditText"
+            android:hint="Enter Room Name"
+            android:layout_margin="10dp" />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/roomCityEditText"
+            android:hint="Enter Room Name"
+            android:layout_margin="10dp" />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/roomPasswordEditText"
+            android:hint="Enter Room Password"
+            android:layout_margin="10dp" />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/roomDescriptionEditText"
+            android:hint="Enter Room Description"
+            android:layout_margin="10dp" />
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/addRoomButton"
+            android:text="ODA OLUŞTUR"
+            android:layout_margin="30dp" />
+    </LinearLayout>
+</layout>

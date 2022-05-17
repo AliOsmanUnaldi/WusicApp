@@ -2,6 +2,8 @@ package com.aliosmanunaldi.wusicapp.data.login
 
 import com.aliosmanunaldi.wusicapp.Review
 import com.aliosmanunaldi.wusicapp.UserRegister
+import com.aliosmanunaldi.wusicapp.data.addRoom.AddRoomRequest
+import com.aliosmanunaldi.wusicapp.data.addRoom.AddRoomResponse
 import com.aliosmanunaldi.wusicapp.data.home.models.CityListResponse
 import com.aliosmanunaldi.wusicapp.data.home.models.RoomListResponse
 import com.aliosmanunaldi.wusicapp.data.register.RegisterResponse
@@ -51,4 +53,9 @@ interface WusicApi {
     suspend fun setUserReview(
         @Body review: Review
     ): ReviewResponse
+
+    @POST(value = ("/api/rooms/add"))
+    suspend fun setRoom(
+        @Body addRoomRequest: AddRoomRequest
+    ): AddRoomResponse
 }

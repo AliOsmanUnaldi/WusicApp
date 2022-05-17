@@ -48,7 +48,7 @@
             android:layout_marginEnd="12dp"
             android:layout_marginBottom="12dp"
             android:src="@drawable/ic_launcher_background"
-            app:layout_constraintBottom_toBottomOf="@+id/roomsRecyclerView"
+            app:layout_constraintTop_toTopOf="@+id/roomsRecyclerView"
             app:layout_constraintEnd_toEndOf="@+id/roomsRecyclerView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

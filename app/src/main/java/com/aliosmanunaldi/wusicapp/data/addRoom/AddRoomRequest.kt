@@ -7,13 +7,13 @@ data class AddRoomRequest(
     @SerializedName("ownerId")
     val ownerId: Int,
     @SerializedName("roomName")
-    val roomName: String,
+    val roomName: String?,
     @SerializedName("genre")
-    val genre: String,
+    val genre: String?,
     @SerializedName("city")
-    val cityId: Int,
+    val cityId: Int?,
     @SerializedName("password")
-    val password: String,
+    val password: String?,
     @SerializedName("description")
-    val description: String
+    val description: String?
 )

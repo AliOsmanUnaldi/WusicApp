@@ -42,6 +42,7 @@ class AddRoomFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.deleteRoom.visibility = View.GONE
 
         binding.addRoomButton.setOnClickListener {
             val addRoomRequest = AddRoomRequest(
@@ -49,8 +50,8 @@ class AddRoomFragment : Fragment() {
                 roomName = binding.roomNameEditText.text.toString(),
                 genre = binding.roomGenreEditText.text.toString(),
                 cityId = 1,
-                password = binding.roomPasswordEditText.text.toString(),
-                description = binding.roomDescriptionEditText.text.toString()
+                description = binding.roomDescriptionEditText.text.toString(),
+                password = null
             )
             viewModel.setRoom(addRoomRequest)
         }
@@ -68,11 +69,8 @@ class AddRoomFragment : Fragment() {
 
     private fun renderPageViewState(viewState: AddRoomPageViewState) {
 
-        findNavController().navigate(
-            AddRoomFragmentDirections.actionAddRoomFragmentToHomeFragment(
-                args.userId
-            )
-        )
+        binding.viewState = viewState
+        binding.deleteRoom.visibility = View.VISIBLE
 
         Snackbar.make(
             binding.linearLayout,

@@ -13,4 +13,6 @@ data class RoomDetailPageViewState(val result: RoomDetailResponse) {
     fun getRoomCity() = result.data?.city
 
     fun getRoomDescription() = result.data?.description
+
+    fun getAveragePoint() = result.data?.averagePoint.toString() ?: "0.0"
 }

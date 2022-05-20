@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -17,55 +17,180 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.roomDetail.RoomDetailFragment"
-        android:orientation="vertical">
+        android:background="@color/darkBlack"
+        android:orientation="vertical"
+        tools:context=".ui.roomDetail.RoomDetailFragment">
 
-        <TextView
-            android:id="@+id/roomName"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{viewState.roomName}"
-            tools:text="selam" />
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="12dp"
+            android:background="@color/black"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
 
-        <TextView
-            android:id="@+id/roomGenre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{viewState.roomGenre}"
-            tools:text="selam" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="40dp"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/roomCity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{viewState.roomCity}"
-            tools:text="selam" />
+                <ImageView
+                    android:id="@+id/starIcon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/star"
+                    android:layout_marginStart="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/roomDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{viewState.roomDescription}"
-            tools:text="selam" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewState.averagePoint}"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintStart_toEndOf="@id/starIcon"
+                    app:layout_constraintBottom_toBottomOf="@id/starIcon"
+                    app:layout_constraintTop_toTopOf="@id/starIcon"
+                    android:textStyle="bold"
+                    tools:text="4.8" />
+
+                <TextView
+                    android:id="@+id/roomGenre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="center"
+                    android:text="@{viewState.roomGenre}"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageIcon"
+                    app:layout_constraintEnd_toStartOf="@+id/imageIcon"
+                    app:layout_constraintTop_toTopOf="@id/imageIcon"
+                    tools:text="Hip hop" />
+
+                <ImageView
+                    android:id="@+id/imageIcon"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/music"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginEnd="48dp"
+                android:outlineSpotShadowColor="@color/darkGray"
+                app:cardCornerRadius="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/cream"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/roomName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:gravity="center_horizontal"
+                        android:text="@{viewState.roomName}"
+                        android:textColor="@color/darkBlack"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:text="Bağlar Partisi" />
+
+                    <TextView
+                        android:id="@+id/roomCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:gravity="center_horizontal"
+                        android:text="@{viewState.roomCity}"
+                        android:textColor="@color/darkBlack"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:text="Eskişehir" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:background="@color/cream"
+                android:orientation="vertical"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="Açıklama :"
+                    android:textColor="@color/darkGray"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/roomDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="12dp"
+                    android:lines="4"
+                    android:text="@{viewState.roomDescription}"
+                    android:textColor="@color/darkGray"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    tools:text="description asdasddsfa asdasd asdasdasd asda dsad fdsdasdsf sdfsdasdas asdasd asd aasdasdasd asdasd asdasd dsada sadasd" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/joinRoomButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Odaya Gir"
-            android:visibility="@{joinViewState.userJoined}"
             android:layout_gravity="center"
-            android:padding="10dp"
-            android:layout_margin="6dp" />
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:text="Odaya Gir"
+            android:visibility="@{joinViewState.userJoined}" />
 
         <Button
             android:id="@+id/quitRoomButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Odadan Ayrıl"
-            android:visibility="gone"
             android:layout_gravity="center"
-            android:padding="10dp"
-            android:layout_margin="6dp" />
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/darkBlack"
+            android:text="Odadan Ayrıl"
+            android:visibility="gone" />
     </LinearLayout>
 </layout>

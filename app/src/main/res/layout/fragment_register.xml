@@ -11,11 +11,12 @@
     android:background="@color/metalWhite">
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/ic_launcher_foreground"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/logo"
         android:layout_gravity="center"
-        android:layout_marginTop="80dp" />
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="40dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="250dp"
@@ -23,7 +24,7 @@
         android:layout_gravity="center"
         android:backgroundTint="@color/white"
         android:textColor="@color/lightGreen"
-        android:layout_margin="6dp"
+        android:layout_marginBottom="12dp"
         android:hint="Username">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -40,7 +41,7 @@
         android:layout_gravity="center"
         android:backgroundTint="@color/white"
         android:textColor="@color/lightGreen"
-        android:layout_margin="6dp"
+        android:layout_marginBottom="12dp"
         android:hint="Email">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -57,7 +58,7 @@
         android:layout_gravity="center"
         android:backgroundTint="@color/white"
         android:textColor="@color/lightGreen"
-        android:layout_margin="6dp"
+        android:layout_marginBottom="8dp"
         android:hint="Password">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -74,7 +75,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/registerButton"
         android:layout_gravity="center"
-        android:layout_margin="6dp"
         android:textColor="@color/white"
         android:backgroundTint="@color/lightGreen"
         android:text="Kayıt Ol" />

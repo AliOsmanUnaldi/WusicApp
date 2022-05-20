@@ -14,5 +14,11 @@ data class RoomResponse(
     @SerializedName("city")
     val city: String?,
     @SerializedName("description")
-    val description: String?
+    val description: String?,
+    @SerializedName("averagePoint")
+    val averagePoint: Double?,
+    @SerializedName("longitude")
+    val longitude: Double?,
+    @SerializedName("latitude")
+    val latitude: Double?
 )

@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.aliosmanunaldi.wusicapp.R
 import com.aliosmanunaldi.wusicapp.data.roomDetail.RoomDetailRepository
 import com.aliosmanunaldi.wusicapp.databinding.FragmentRoomDetailBinding
+import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 
 class RoomDetailFragment : Fragment() {
@@ -81,6 +83,9 @@ class RoomDetailFragment : Fragment() {
 
     private fun renderJoinRoomViewState(viewState: JoinRoomViewState) {
         binding.joinViewState = viewState
+        Glide.with(this)
+            .load(R.drawable.musicanimate)
+            .into(binding.imageIcon);
         binding.quitRoomButton.visibility = viewState.isUserNotJoined()
         Snackbar.make(
             binding.linearLayout,

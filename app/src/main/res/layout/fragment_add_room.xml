@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         tools:context=".ui.addRoom.AddRoomFragment"
         android:orientation="vertical"
-        android:background="@color/metalWhite">
+        android:background="@color/darkBlack">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -23,6 +23,7 @@
             android:layout_marginEnd="12dp"
             android:layout_marginBottom="12dp"
             android:backgroundTint="@color/white"
+            android:layout_marginTop="20dp"
             android:hint="Başlık"
             android:textColor="@color/lightGreen"
             android:visibility="@{viewState.isAddButtonVisible()}">
@@ -115,8 +116,15 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
+            android:layout_marginTop="20dp"
             android:textColor="@color/white"
             android:id="@+id/deleteRoom"
             android:text="ETKİNLİĞİ SONLANDIR" />
+
+        <ImageView
+            android:id="@+id/roomActiveGif"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:src="@drawable/suprise"/>
     </LinearLayout>
 </layout>

@@ -8,9 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.aliosmanunaldi.wusicapp.R
 import com.aliosmanunaldi.wusicapp.data.addRoom.AddRoomRepository
 import com.aliosmanunaldi.wusicapp.data.addRoom.AddRoomRequest
 import com.aliosmanunaldi.wusicapp.databinding.FragmentAddRoomBinding
+import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 
 class AddRoomFragment : Fragment() {
@@ -43,6 +45,7 @@ class AddRoomFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.deleteRoom.visibility = View.GONE
+        binding.roomActiveGif.visibility = View.GONE
 
         binding.addRoomButton.setOnClickListener {
             val addRoomRequest = AddRoomRequest(
@@ -70,7 +73,11 @@ class AddRoomFragment : Fragment() {
     private fun renderPageViewState(viewState: AddRoomPageViewState) {
 
         binding.viewState = viewState
+        Glide.with(this)
+            .load(R.drawable.suprise)
+            .into(binding.roomActiveGif);
         binding.deleteRoom.visibility = View.VISIBLE
+        binding.roomActiveGif.visibility = View.VISIBLE
 
         Snackbar.make(
             binding.linearLayout,

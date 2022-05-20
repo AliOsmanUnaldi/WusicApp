@@ -85,7 +85,7 @@ class RoomDetailFragment : Fragment() {
         binding.joinViewState = viewState
         Glide.with(this)
             .load(R.drawable.musicanimate)
-            .into(binding.imageIcon);
+            .into(binding.imageIcon)
         binding.quitRoomButton.visibility = viewState.isUserNotJoined()
         Snackbar.make(
             binding.linearLayout,

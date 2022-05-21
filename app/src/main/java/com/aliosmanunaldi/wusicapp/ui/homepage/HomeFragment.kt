@@ -60,6 +60,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun setUpView() {
+        if (args.roomId != -1){
+            binding.createRoomButton.text = "ODAM"
+        }
+
+
         with(binding.roomsRecyclerView) {
             apply {
                 listAdapter = RoomListAdapter()

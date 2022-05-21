@@ -72,6 +72,7 @@ class MyRoomFragment : Fragment() {
         val myList: List<Participant> = list.map { Participant(it) }
         if (myList.isEmpty()) {
             binding.participantsTextView.text = "Katılımcı henüz yok :("
+            binding.participantsRecyclerView.visibility = View.GONE
         }
         participantListAdapter.submitList(myList)
         participantListAdapter.notifyDataSetChanged()

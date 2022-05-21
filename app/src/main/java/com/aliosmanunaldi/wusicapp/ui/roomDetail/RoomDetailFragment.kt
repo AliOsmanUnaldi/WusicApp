@@ -11,6 +11,10 @@ import androidx.navigation.fragment.navArgs
 import com.aliosmanunaldi.wusicapp.R
 import com.aliosmanunaldi.wusicapp.data.roomDetail.RoomDetailRepository
 import com.aliosmanunaldi.wusicapp.databinding.FragmentRoomDetailBinding
+import com.aliosmanunaldi.wusicapp.ui.city.CityListViewState
+import com.aliosmanunaldi.wusicapp.ui.common.LinearItemDecoration
+import com.aliosmanunaldi.wusicapp.ui.roomDetail.comment.CommentListAdapter
+import com.aliosmanunaldi.wusicapp.ui.roomDetail.comment.CommentsViewState
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 
@@ -18,16 +22,14 @@ class RoomDetailFragment : Fragment() {
 
     private var _binding: FragmentRoomDetailBinding? = null
     private val binding get() = _binding!!
-    private val args: com.aliosmanunaldi.wusicapp.ui.roomDetail.RoomDetailFragmentArgs by navArgs()
+    private val args: RoomDetailFragmentArgs by navArgs()
 
+    lateinit var commentListAdapter: CommentListAdapter
 
     val viewModel: RoomDetailViewModel by viewModels {
         RoomDetailViewModelFactory(
             repository = RoomDetailRepository()
         )
-    }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(
@@ -57,8 +59,21 @@ class RoomDetailFragment : Fragment() {
                 )
             )
         }
-
+        binding.getCommentsButton.setOnClickListener {
+            binding.viewState?.getRoomOwnerId()?.let {
+                viewModel.fetchComments(it)
+            }
+        }
+        setUpView()
         setUpViewModel()
+    }
+
+    private fun setUpView() {
+        with(binding.commentsRecyclerView) {
+            commentListAdapter = CommentListAdapter()
+            adapter = commentListAdapter
+            addItemDecoration(LinearItemDecoration())
+        }
     }
 
 
@@ -74,11 +89,30 @@ class RoomDetailFragment : Fragment() {
             getQuitRoomLiveData().observe(viewLifecycleOwner) {
                 renderQuitRoomViewState(it)
             }
+            getCommentsLiveData().observe(viewLifecycleOwner) {
+                renderCommentsViewState(it)
+            }
         }
     }
 
     private fun renderPageViewState(viewState: RoomDetailPageViewState) {
         binding.viewState = viewState
+    }
+
+    private fun renderCommentsViewState(viewState: CommentsViewState) {
+        binding.commentsViewState = viewState
+        val comments = viewState.list.data.orEmpty()
+        if (comments.isNotEmpty()) {
+            commentListAdapter.submitList(comments)
+            binding.commentsRecyclerView.visibility = View.VISIBLE
+            binding.getCommentsButton.visibility = View.GONE
+        } else {
+            Snackbar.make(
+                binding.linearLayout,
+                "Odaya henüz yorum yapılmadı",
+                Snackbar.LENGTH_SHORT
+            ).show()
+        }
     }
 
     private fun renderJoinRoomViewState(viewState: JoinRoomViewState) {

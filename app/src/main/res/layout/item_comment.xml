@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="itemViewState"
+            type="com.aliosmanunaldi.wusicapp.ui.roomDetail.comment.CommentItemViewState" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/cream"
+        app:cardCornerRadius="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="4dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{itemViewState.comment.name}"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                tools:text="Ali Osman Ünaldı" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{itemViewState.comment.comment}"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                tools:text="Çok iyiydi çok memnunuz falan" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

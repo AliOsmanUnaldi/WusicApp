@@ -11,6 +11,7 @@ import com.aliosmanunaldi.wusicapp.data.review.ReviewResponse
 import com.aliosmanunaldi.wusicapp.data.roomDetail.JoinRoomResponse
 import com.aliosmanunaldi.wusicapp.data.roomDetail.LeaveRoomResponse
 import com.aliosmanunaldi.wusicapp.data.roomDetail.RoomDetailResponse
+import com.aliosmanunaldi.wusicapp.data.roomDetail.comment.CommentListResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -37,6 +38,9 @@ interface WusicApi {
 
     @GET("/api/rooms/getRoomByRoomId")
     suspend fun getRoomByRoomId(@Query(value = "id") roomId: Int): RoomDetailResponse
+
+    @GET("/api/comments/getCommentsByCommentRecieversId")
+    suspend fun fetchCommentsByRoomOwnerId(@Query(value = "id") ownerId: Int): CommentListResponse
 
     @GET("/joinIntoRoom")
     suspend fun setUserJoinRoom(

@@ -14,7 +14,7 @@
             type="com.aliosmanunaldi.wusicapp.ui.city.CityListViewState" />
     </data>
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -49,8 +49,7 @@
             android:layout_height="match_parent"
             android:background="@color/darkBlack"
             android:backgroundTint="@color/cream"
-            android:paddingBottom="20dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </layout>

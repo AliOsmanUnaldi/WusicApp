@@ -8,18 +8,22 @@ import com.aliosmanunaldi.wusicapp.data.roomDetail.JoinRoomResponse
 import com.aliosmanunaldi.wusicapp.data.roomDetail.LeaveRoomResponse
 import com.aliosmanunaldi.wusicapp.data.roomDetail.RoomDetailRepository
 import com.aliosmanunaldi.wusicapp.data.roomDetail.RoomDetailResponse
+import com.aliosmanunaldi.wusicapp.data.roomDetail.comment.CommentListResponse
+import com.aliosmanunaldi.wusicapp.ui.roomDetail.comment.CommentsViewState
 import kotlinx.coroutines.launch
 
 class RoomDetailViewModel(val repository: RoomDetailRepository) : ViewModel() {
 
 
-    val pageLiveData: MutableLiveData<RoomDetailPageViewState> = MutableLiveData()
-    val joinRoomLiveData: MutableLiveData<JoinRoomViewState> = MutableLiveData()
-    val leaveRoomLiveData: MutableLiveData<LeaveRoomViewState> = MutableLiveData()
+    private val pageLiveData: MutableLiveData<RoomDetailPageViewState> = MutableLiveData()
+    private val joinRoomLiveData: MutableLiveData<JoinRoomViewState> = MutableLiveData()
+    private val leaveRoomLiveData: MutableLiveData<LeaveRoomViewState> = MutableLiveData()
+    private val commentsLiveData: MutableLiveData<CommentsViewState> = MutableLiveData()
 
     fun getPageLiveData(): LiveData<RoomDetailPageViewState> = pageLiveData
     fun getJoinRoomLiveData(): LiveData<JoinRoomViewState> = joinRoomLiveData
     fun getQuitRoomLiveData(): LiveData<LeaveRoomViewState> = leaveRoomLiveData
+    fun getCommentsLiveData(): LiveData<CommentsViewState> = commentsLiveData
 
 
     fun fetchRoomDetail(roomId: Int) = viewModelScope.launch {
@@ -30,6 +34,22 @@ class RoomDetailViewModel(val repository: RoomDetailRepository) : ViewModel() {
         } catch (e: Exception) {
             pageLiveData.value = RoomDetailPageViewState(
                 RoomDetailResponse(
+                    data = null,
+                    success = false,
+                    message = "Kayıt başarısız!"
+                )
+            )
+        }
+    }
+
+    fun fetchComments(ownerId: Int) = viewModelScope.launch {
+        try {
+            repository.fetchComments(ownerId).collect{
+                commentsLiveData.value = CommentsViewState(it)
+            }
+        } catch (e: Exception){
+            commentsLiveData.value = CommentsViewState(
+                CommentListResponse(
                     data = null,
                     success = false,
                     message = "Kayıt başarısız!"

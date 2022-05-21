@@ -58,7 +58,7 @@ class LoginFragment : Fragment() {
 
     private fun renderPageViewState(viewState: LoginPageViewState) {
 
-        if (viewState.result?.id != null) {
+        if (viewState.result?.data?.id != null) {
             navigateHomeFragment(viewState)
         }
         Snackbar.make(
@@ -71,8 +71,8 @@ class LoginFragment : Fragment() {
     private fun navigateHomeFragment(viewState: LoginPageViewState) {
         findNavController().navigate(
             LoginFragmentDirections.actionLoginFragmentToHomeFragment(
-                viewState.result?.id!!,
-                -1
+                viewState.result?.data?.id!!,
+                viewState.result.data.usersRoomId ?: -1
             )
         )
     }

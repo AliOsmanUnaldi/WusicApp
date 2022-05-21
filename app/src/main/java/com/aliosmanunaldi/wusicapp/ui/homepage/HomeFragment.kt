@@ -83,7 +83,7 @@ class HomeFragment : Fragment() {
             }
             addItemDecoration(LinearItemDecoration())
         }
-        binding?.createRoomButton?.setOnClickListener { view ->
+        binding.createRoomButton.setOnClickListener { view ->
             if (args.roomId == -1) {
                 navigateAddRoomFragment()
             } else {

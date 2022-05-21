@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aliosmanunaldi.wusicapp.User
+import com.aliosmanunaldi.wusicapp.data.login.LoginDataResponse
 import com.aliosmanunaldi.wusicapp.data.login.LoginRepository
 import com.aliosmanunaldi.wusicapp.data.login.LoginResponse
 import kotlinx.coroutines.launch
@@ -25,7 +26,7 @@ class LoginViewModel(
         } catch (e: Exception) {
             pageLiveData.value = LoginPageViewState(
                 LoginResponse(
-                    null,
+                    data = LoginDataResponse(null,null),
                     success = false,
                     message = "Kişi bulunamadı"
                 )

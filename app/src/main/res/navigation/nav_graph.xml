@@ -33,8 +33,14 @@
         <action
             android:id="@+id/actionHomeFragmentToAddRoomFragment"
             app:destination="@id/addRoomFragment" />
+        <action
+            android:id="@+id/actionHomeFragmentToMyRoomFragment"
+            app:destination="@id/myRoomFragment" />
         <argument
             android:name="userId"
+            app:argType="integer" />
+        <argument
+            android:name="roomId"
             app:argType="integer" />
     </fragment>
     <fragment
@@ -77,6 +83,15 @@
             app:destination="@id/homeFragment" />
         <argument
             android:name="userId"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/myRoomFragment"
+        android:name="com.aliosmanunaldi.wusicapp.ui.myroom.MyRoomFragment"
+        android:label="MyRoomFragment">
+        <argument
+            android:name="roomId"
             app:argType="integer" />
     </fragment>
 

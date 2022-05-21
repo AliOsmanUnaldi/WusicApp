@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/darkBlack">
+
+        <ImageView
+            android:id="@+id/roomActiveGif"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            tools:src="@drawable/suprise" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:id="@+id/deleteRoom"
+            android:text="ETKİNLİĞİ SONLANDIR" />
+
+        <TextView
+            android:id="@+id/participantsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:text="Katılımcılar"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="12dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/participantsRecyclerView"
+            android:paddingTop="36dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="4"
+            android:background="@color/black" />
+    </LinearLayout>
+</layout>

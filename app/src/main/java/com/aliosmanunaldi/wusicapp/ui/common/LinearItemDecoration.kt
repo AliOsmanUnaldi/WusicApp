@@ -6,14 +6,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.aliosmanunaldi.wusicapp.R
 
 
-class LinearItemDecoration : RecyclerView.ItemDecoration() {
+class LinearItemDecoration(val spacing: Int = R.dimen.item_character_spacing) :
+    RecyclerView.ItemDecoration() {
     override fun getItemOffsets(
         outRect: Rect,
         view: View,
         parent: RecyclerView,
         state: RecyclerView.State
     ) {
-        val spacing = view.context.resources.getDimensionPixelSize(R.dimen.item_character_spacing)
+        val spacing = view.context.resources.getDimensionPixelSize(spacing)
 
 
         outRect.left = spacing

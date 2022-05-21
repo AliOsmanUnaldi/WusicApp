@@ -79,9 +79,21 @@ class HomeFragment : Fragment() {
             addItemDecoration(LinearItemDecoration())
         }
         binding?.createRoomButton?.setOnClickListener { view ->
-            navigateAddRoomFragment()
+            if (args.roomId == -1) {
+                navigateAddRoomFragment()
+            } else {
+                navigateMyRoomFragment()
+            }
 
         }
+    }
+
+    private fun navigateMyRoomFragment() {
+        findNavController().navigate(
+            HomeFragmentDirections.actionHomeFragmentToMyRoomFragment(
+                args.roomId
+            )
+        )
     }
 
     private fun navigateAddRoomFragment() {

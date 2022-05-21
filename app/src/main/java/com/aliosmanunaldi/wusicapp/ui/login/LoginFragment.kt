@@ -71,7 +71,8 @@ class LoginFragment : Fragment() {
     private fun navigateHomeFragment(viewState: LoginPageViewState) {
         findNavController().navigate(
             LoginFragmentDirections.actionLoginFragmentToHomeFragment(
-                viewState.result?.id!!
+                viewState.result?.id!!,
+                -1
             )
         )
     }

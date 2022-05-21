@@ -58,4 +58,10 @@ interface WusicApi {
     suspend fun setRoom(
         @Body addRoomRequest: AddRoomRequest
     ): AddRoomResponse
+
+    @GET("/api/rooms/getAllParticipants")
+    suspend fun getParticipantList(
+        @Query(value = "roomId") roomId: Int
+    ): List<String>
+
 }

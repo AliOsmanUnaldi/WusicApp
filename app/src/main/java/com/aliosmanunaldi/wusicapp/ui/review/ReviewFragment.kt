@@ -44,13 +44,23 @@ class ReviewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.submitPointAndCommentButton.setOnClickListener {
-            val point = binding.givePointEditText.text.toString().toDouble()
+            val point = binding.givePointEditText.text.toString()
             val comment = binding.commentEditText.text.toString()
-            val review = Review(
-                point = Point(args.userId, args.roomOwnerId, point),
-                comment = Comment(args.userId, args.roomOwnerId, comment)
-            )
-            viewModel.setReview(review)
+
+            if (point == "" || comment == "") {
+                Snackbar.make(
+                    binding.linearLayout,
+                    "Lütfen yorum yapıp puan veriniz!",
+                    Snackbar.LENGTH_LONG
+                ).show()
+            } else {
+                val review = Review(
+                    point = Point(args.userId, args.roomOwnerId, point.toDouble()),
+                    comment = Comment(args.userId, args.roomOwnerId, comment)
+                )
+                viewModel.setReview(review)
+            }
+
         }
         setUpViewModel()
     }
@@ -66,7 +76,12 @@ class ReviewFragment : Fragment() {
 
     private fun renderPageViewState(viewState: ReviewPageViewState) {
 
-        findNavController().navigate(ReviewFragmentDirections.actionReviewToHomeFragment(args.userId))
+        findNavController().navigate(
+            ReviewFragmentDirections.actionReviewToHomeFragment(
+                args.userId,
+                -1
+            )
+        )
 
         Snackbar.make(
             binding.linearLayout,

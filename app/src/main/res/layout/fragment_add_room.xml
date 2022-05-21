@@ -25,8 +25,7 @@
             android:backgroundTint="@color/white"
             android:layout_marginTop="20dp"
             android:hint="Başlık"
-            android:textColor="@color/lightGreen"
-            android:visibility="@{viewState.isAddButtonVisible()}">
+            android:textColor="@color/lightGreen">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/roomNameEditText"
@@ -46,8 +45,7 @@
             android:layout_marginBottom="12dp"
             android:backgroundTint="@color/white"
             android:hint="Tür"
-            android:textColor="@color/lightGreen"
-            android:visibility="@{viewState.isAddButtonVisible()}">
+            android:textColor="@color/lightGreen">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/roomGenreEditText"
@@ -59,7 +57,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:visibility="@{viewState.isAddButtonVisible()}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -80,7 +77,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:visibility="@{viewState.isAddButtonVisible()}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -107,24 +103,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             android:textColor="@color/white"
-            android:visibility="@{viewState.isAddButtonVisible()}"
             android:id="@+id/addRoomButton"
             android:text="ETKİNLİK OLUŞTUR" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/white"
-            android:id="@+id/deleteRoom"
-            android:text="ETKİNLİĞİ SONLANDIR" />
-
-        <ImageView
-            android:id="@+id/roomActiveGif"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:src="@drawable/suprise"/>
     </LinearLayout>
 </layout>

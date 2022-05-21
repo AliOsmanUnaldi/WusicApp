@@ -13,7 +13,7 @@ class AddRoomViewModel(
     val repository: AddRoomRepository
 ) : ViewModel() {
 
-    val pageLiveData: MutableLiveData<AddRoomPageViewState> = MutableLiveData()
+    private val pageLiveData: MutableLiveData<AddRoomPageViewState> = MutableLiveData()
 
     fun getPageLiveData(): LiveData<AddRoomPageViewState> = pageLiveData
 
@@ -25,6 +25,7 @@ class AddRoomViewModel(
         } catch (e: Exception) {
             pageLiveData.value = AddRoomPageViewState(
                 AddRoomResponse(
+                    data = null,
                     success = false,
                     message = "Kayıt başarısız!"
                 )

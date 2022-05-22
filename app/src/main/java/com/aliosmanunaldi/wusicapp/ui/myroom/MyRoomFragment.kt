@@ -6,12 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.aliosmanunaldi.wusicapp.R
 import com.aliosmanunaldi.wusicapp.data.myroom.MyRoomRepository
+import com.aliosmanunaldi.wusicapp.data.myroom.MyRoomResponse
 import com.aliosmanunaldi.wusicapp.databinding.FragmentMyRoomBinding
 import com.aliosmanunaldi.wusicapp.ui.common.LinearItemDecoration
 import com.bumptech.glide.Glide
+import com.google.android.material.snackbar.Snackbar
 
 class MyRoomFragment : Fragment() {
 
@@ -55,7 +58,38 @@ class MyRoomFragment : Fragment() {
             getParticipantListLiveData().observe(viewLifecycleOwner) {
                 renderParticipants(it)
             }
+            getRemoveRoomLiveData().observe(viewLifecycleOwner) {
+                renderRemoveMyRoom(it)
+            }
         }
+    }
+
+    private fun renderRemoveMyRoom(it: MyRoomResponse?) {
+        if (it?.success == true) {
+            navigateHomeFragment(it)
+
+        } else {
+            Snackbar.make(
+                binding.root,
+                it?.message.toString(),
+                Snackbar.LENGTH_LONG
+            ).show()
+        }
+
+    }
+
+    private fun navigateHomeFragment(response: MyRoomResponse) {
+        findNavController().navigate(
+            MyRoomFragmentDirections.actionMyRoomFragmentToHomeFragment(
+                args.userId,
+                -1
+            )
+        )
+        Snackbar.make(
+            binding.root,
+            response.message.toString(),
+            Snackbar.LENGTH_LONG
+        ).show()
     }
 
     private fun setUpView() {
@@ -65,6 +99,9 @@ class MyRoomFragment : Fragment() {
                 adapter = participantListAdapter
                 addItemDecoration(LinearItemDecoration(spacing = R.dimen.item_participants_spacing))
             }
+        }
+        binding.deleteRoom.setOnClickListener {
+            viewModel.removeMyRoom(args.roomId)
         }
     }
 

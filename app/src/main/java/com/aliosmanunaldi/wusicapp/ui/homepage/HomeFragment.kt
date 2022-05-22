@@ -96,7 +96,8 @@ class HomeFragment : Fragment() {
     private fun navigateMyRoomFragment() {
         findNavController().navigate(
             HomeFragmentDirections.actionHomeFragmentToMyRoomFragment(
-                args.roomId
+                args.roomId,
+                args.userId
             )
         )
     }

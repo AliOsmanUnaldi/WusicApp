@@ -6,16 +6,14 @@ import com.aliosmanunaldi.wusicapp.data.addRoom.AddRoomRequest
 import com.aliosmanunaldi.wusicapp.data.addRoom.AddRoomResponse
 import com.aliosmanunaldi.wusicapp.data.home.models.CityListResponse
 import com.aliosmanunaldi.wusicapp.data.home.models.RoomListResponse
+import com.aliosmanunaldi.wusicapp.data.myroom.MyRoomResponse
 import com.aliosmanunaldi.wusicapp.data.register.RegisterResponse
 import com.aliosmanunaldi.wusicapp.data.review.ReviewResponse
 import com.aliosmanunaldi.wusicapp.data.roomDetail.JoinRoomResponse
 import com.aliosmanunaldi.wusicapp.data.roomDetail.LeaveRoomResponse
 import com.aliosmanunaldi.wusicapp.data.roomDetail.RoomDetailResponse
 import com.aliosmanunaldi.wusicapp.data.roomDetail.comment.CommentListResponse
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface WusicApi {
     @GET("/login")
@@ -68,4 +66,8 @@ interface WusicApi {
         @Query(value = "roomId") roomId: Int
     ): List<String>
 
+    @DELETE("/api/rooms/delete")
+    suspend fun removeMyRoom(
+        @Query(value = "id") id: Int
+    ): MyRoomResponse
 }
